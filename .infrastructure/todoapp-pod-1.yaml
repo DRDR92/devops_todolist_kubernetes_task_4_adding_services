@@ -10,6 +10,17 @@ spec:
     image: ikulyk404/todoapp:3.0.0
     ports:
     - containerPort: 8080
+    env:
+    - name: DEBUG
+      value: "False"
+    - name: SECRET_KEY
+      value: "django-insecure-change-me-in-production"
+    - name: ALLOWED_HOSTS
+      value: "localhost,127.0.0.1,*"
+    - name: DATABASE_ENGINE
+      value: "django.db.backends.sqlite3"
+    - name: DATABASE_NAME
+      value: "/tmp/db.sqlite3"
     livenessProbe:
       httpGet:
         path: /api/health
